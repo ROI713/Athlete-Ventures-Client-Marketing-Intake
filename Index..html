@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATHLETE VENTURES — CLIENT MARKETING INTAKE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --field-green:#000000;
+    --field-green-dark:#000000;
+    --chalk:#FFFFFF;
+    --card:#FAFAFA;
+    --charcoal:#111111;
+    --turf-gold:#C9A227;
+    --turf-gold-dark:#8A6B12;
+    --line:#DDDDDD;
+    --muted:#666666;
+    --danger:#8B3A3A;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--chalk);
+    color:var(--charcoal);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+  }
+  h1,h2,h3,.display{
+    font-family:'Oswald',sans-serif;
+    font-weight:500;
+    letter-spacing:0.01em;
+  }
+  .shell{max-width:760px;margin:0 auto;padding:0 20px 80px;}
+  header.top{
+    background:var(--field-green);
+    color:var(--chalk);
+    padding:36px 20px 28px;
+    margin-bottom:28px;
+  }
+  header.top .inner{max-width:760px;margin:0 auto;}
+  header.top h1{font-size:28px;margin:0 0 6px;color:#fff;}
+  header.top p{margin:0;color:rgba(255,255,255,0.65);font-size:14px;max-width:520px;}
+  section.card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:24px 24px 8px;
+    margin-bottom:20px;
+  }
+  section.card h2{
+    font-size:15px;
+    margin:0 0 4px;
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+  }
+  section.card h2 .num{color:var(--turf-gold-dark);font-size:15px;}
+  section.card p.hint{color:var(--muted);font-size:13px;margin:0 0 18px;}
+  .field{margin-bottom:16px;}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  @media (max-width:560px){.row2,.row3{grid-template-columns:1fr;}}
+  label{display:block;font-size:12px;font-weight:500;color:var(--muted);margin-bottom:5px;}
+  label .req{color:var(--danger);}
+  input[type=text], input[type=email], input[type=tel], input[type=url], input[type=number], input[type=date], select, textarea{
+    width:100%;
+    font-family:'Inter',sans-serif;
+    font-size:14px;
+    padding:10px 12px;
+    border:1px solid var(--line);
+    border-radius:4px;
+    background:#fff;
+    color:var(--charcoal);
+  }
+  input:focus, select:focus, textarea:focus{
+    outline:none;
+    border-color:var(--turf-gold);
+    box-shadow:0 0 0 2px rgba(201,162,39,0.22);
+  }
+  textarea{min-height:78px;resize:vertical;}
+  .err{color:var(--danger);font-size:12px;margin-top:4px;display:none;}
+  .field.invalid input, .field.invalid textarea, .field.invalid select{border-color:var(--danger);}
+  .field.invalid .err{display:block;}
+  .check-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;}
+  @media (max-width:560px){.check-grid{grid-template-columns:1fr;}}
+  .check-item{display:flex;align-items:center;gap:8px;font-size:13px;padding:6px 0;}
+  .check-item input{width:auto;}
+  .submit-bar{display:flex;justify-content:flex-end;align-items:center;gap:14px;padding:6px 0 20px;}
+  .submit-bar .status{font-size:13px;color:var(--muted);}
+  button.primary{
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:14px;
+    padding:12px 26px;
+    background:var(--field-green);
+    color:var(--chalk);
+    border:none;
+    border-radius:4px;
+    cursor:pointer;
+  }
+  button.primary:active{transform:scale(0.98);}
+  .confirm{
+    display:none;
+    background:var(--field-green);
+    color:var(--chalk);
+    border-radius:6px;
+    padding:22px 24px;
+    margin-bottom:20px;
+  }
+  .confirm h2{color:#fff;font-size:18px;margin:0 0 6px;}
+  .confirm p{margin:0;color:rgba(255,255,255,0.65);font-size:13px;}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="inner">
+    <h1 style="text-transform:uppercase;">Athlete Ventures — Client Marketing Intake</h1>
+    <p>A few minutes of details help us build a stronger pitch and match you with the right brand deals.</p>
+  </div>
+</header>
+
+<div class="shell">
+
+  <div class="confirm" id="confirmBox">
+    <h2>Profile submitted</h2>
+    <p>Thanks — your profile is in with Athlete Ventures.</p>
+  </div>
+
+  <form id="intakeForm" novalidate>
+
+    <section class="card">
+      <h2><span class="num">1</span>Player info</h2>
+      <p class="hint">The basics that anchor every pitch deck.</p>
+      <div class="row2">
+        <div class="field" data-req="1">
+          <label>Full name <span class="req">*</span></label>
+          <input type="text" name="fullName" placeholder="First and last name">
+          <div class="err">Enter a name.</div>
+        </div>
+        <div class="field">
+          <label>Birthday</label>
+          <input type="date" name="birthday">
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>Sport</label>
+          <select name="sport">
+            <option value="Football">Football</option>
+            <option value="Basketball">Basketball</option>
+            <option value="Baseball">Baseball</option>
+            <option value="Track and field">Track and field</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Position</label>
+          <input type="text" name="position" placeholder="e.g. Wide receiver">
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field" data-req="1">
+          <label>School or team <span class="req">*</span></label>
+          <input type="text" name="school" placeholder="e.g. University of Cincinnati">
+          <div class="err">Enter a school or team.</div>
+        </div>
+        <div class="field">
+          <label>Class year or eligibility</label>
+          <input type="text" name="classYear" placeholder="e.g. 2027, or Pro">
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>Jersey number</label>
+          <input type="text" name="jersey" placeholder="e.g. 95">
+        </div>
+        <div class="field">
+          <label>Hometown</label>
+          <input type="text" name="hometown" placeholder="City, state">
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2><span class="num">2</span>Apparel and gear sizing</h2>
+      <p class="hint">So merch and gear deals fit right the first time.</p>
+      <div class="row2">
+        <div class="field">
+          <label>Shirt size</label>
+          <select name="shirtSize">
+            <option value="">Select</option>
+            <option>XS</option><option>S</option><option>M</option><option>L</option>
+            <option>XL</option><option>XXL</option><option>XXXL</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Shorts size</label>
+          <select name="shortsSize">
+            <option value="">Select</option>
+            <option>XS</option><option>S</option><option>M</option><option>L</option>
+            <option>XL</option><option>XXL</option><option>XXXL</option>
+          </select>
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>Cleat size</label>
+          <input type="text" name="cleatSize" placeholder="e.g. 11.5">
+        </div>
+        <div class="field">
+          <label>Glove size</label>
+          <input type="text" name="gloveSize" placeholder="e.g. M or 9.0">
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2><span class="num">3</span>Contact and social reach</h2>
+      <p class="hint">Follower counts help with rate conversations, so use your current numbers.</p>
+      <div class="row2">
+        <div class="field" data-req="1">
+          <label>Email <span class="req">*</span></label>
+          <input type="email" name="email" placeholder="name@email.com">
+          <div class="err">Enter a valid email.</div>
+        </div>
+        <div class="field">
+          <label>Phone</label>
+          <input type="tel" name="phone" placeholder="(555) 555-5555">
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>Instagram handle</label>
+          <input type="text" name="igHandle" placeholder="@handle">
+        </div>
+        <div class="field">
+          <label>Instagram followers</label>
+          <input type="number" name="igFollowers" min="0" placeholder="0">
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>TikTok handle</label>
+          <input type="text" name="ttHandle" placeholder="@handle">
+        </div>
+        <div class="field">
+          <label>TikTok followers</label>
+          <input type="number" name="ttFollowers" min="0" placeholder="0">
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>X / Twitter handle</label>
+          <input type="text" name="xHandle" placeholder="@handle">
+        </div>
+        <div class="field">
+          <label>X / Twitter followers</label>
+          <input type="number" name="xFollowers" min="0" placeholder="0">
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>Other platform</label>
+          <input type="text" name="otherPlatform" placeholder="e.g. YouTube handle">
+        </div>
+        <div class="field">
+          <label>Other platform followers</label>
+          <input type="number" name="otherFollowers" min="0" placeholder="0">
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2><span class="num">4</span>Brand story</h2>
+      <p class="hint">This is the narrative that goes straight into pitch decks.</p>
+      <div class="field" data-req="1">
+        <label>Personal bio or story <span class="req">*</span></label>
+        <textarea name="bio" placeholder="Background, journey, what makes your story compelling"></textarea>
+        <div class="err">Add a short bio.</div>
+      </div>
+      <div class="field">
+        <label>Notable stats or achievements</label>
+        <textarea name="achievements" placeholder="Records, awards, standout season stats"></textarea>
+      </div>
+      <div class="field">
+        <label>Interests outside the sport</label>
+        <textarea name="interests" placeholder="Hobbies, side projects, causes, style"></textarea>
+      </div>
+      <div class="field">
+        <label>Community involvement</label>
+        <textarea name="community" placeholder="Volunteering, camps, local ties"></textarea>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2><span class="num">5</span>Deal history and goals</h2>
+      <p class="hint">What has already happened and what you're looking for.</p>
+      <div class="field">
+        <label>Current or past NIL / brand deals</label>
+        <textarea name="pastDeals" placeholder="Brand names, deal type, roughly when"></textarea>
+      </div>
+      <div class="field">
+        <label>Target brands or industries</label>
+        <textarea name="targetBrands" placeholder="e.g. local restaurants, apparel, fitness"></textarea>
+      </div>
+      <div class="field">
+        <label>Preferred deal types</label>
+        <div class="check-grid">
+          <label class="check-item"><input type="checkbox" name="dealType" value="Social media post"> Social media post</label>
+          <label class="check-item"><input type="checkbox" name="dealType" value="In-person appearance"> In-person appearance</label>
+          <label class="check-item"><input type="checkbox" name="dealType" value="Autograph signing"> Autograph signing</label>
+          <label class="check-item"><input type="checkbox" name="dealType" value="Ad campaign or commercial"> Ad campaign or commercial</label>
+          <label class="check-item"><input type="checkbox" name="dealType" value="Brand ambassador"> Brand ambassador</label>
+          <label class="check-item"><input type="checkbox" name="dealType" value="Merchandise or apparel"> Merchandise or apparel</label>
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>Rate expectations</label>
+          <input type="text" name="rate" placeholder="e.g. $200 to $500 per post">
+        </div>
+        <div class="field">
+          <label>Availability or blackout dates</label>
+          <input type="text" name="availability" placeholder="e.g. unavailable during finals week">
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2><span class="num">6</span>Media and links</h2>
+      <p class="hint">Anything visual that helps sell the deal.</p>
+      <div class="row2">
+        <div class="field">
+          <label>Highlight reel or media kit link</label>
+          <input type="url" name="reelLink" placeholder="https://">
+        </div>
+        <div class="field">
+          <label>Headshot or photo link</label>
+          <input type="url" name="photoLink" placeholder="https://">
+        </div>
+      </div>
+      <div class="field">
+        <label>Additional notes</label>
+        <textarea name="notes" placeholder="Anything else worth knowing"></textarea>
+      </div>
+    </section>
+
+    <div class="submit-bar">
+      <span class="status" id="submitStatus"></span>
+      <button type="submit" class="primary">Submit profile</button>
+    </div>
+  </form>
+</div>
+
+<script>
+const FORMSPREE_URL = "https://formspree.io/f/xdeowjkn";
+
+const form = document.getElementById('intakeForm');
+
+function clearErrors(){
+  form.querySelectorAll('.field.invalid').forEach(f => f.classList.remove('invalid'));
+}
+function isEmail(v){
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+}
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  clearErrors();
+  const data = new FormData(form);
+  let valid = true;
+
+  form.querySelectorAll('.field[data-req="1"]').forEach(field => {
+    const input = field.querySelector('input, textarea');
+    const val = (data.get(input.name) || '').toString().trim();
+    if(!val){
+      field.classList.add('invalid');
+      valid = false;
+    }
+  });
+
+  const emailVal = (data.get('email') || '').toString().trim();
+  if(emailVal && !isEmail(emailVal)){
+    form.querySelector('input[name="email"]').closest('.field').classList.add('invalid');
+    valid = false;
+  }
+
+  if(!valid){
+    document.getElementById('submitStatus').textContent = 'Fix the highlighted fields.';
+    return;
+  }
+
+  const dealTypes = data.getAll('dealType');
+  const entry = {
+    fullName: data.get('fullName') || '',
+    birthday: data.get('birthday') || '',
+    sport: data.get('sport') || '',
+    position: data.get('position') || '',
+    jersey: data.get('jersey') || '',
+    school: data.get('school') || '',
+    classYear: data.get('classYear') || '',
+    hometown: data.get('hometown') || '',
+    shirtSize: data.get('shirtSize') || '',
+    shortsSize: data.get('shortsSize') || '',
+    cleatSize: data.get('cleatSize') || '',
+    gloveSize: data.get('gloveSize') || '',
+    email: data.get('email') || '',
+    phone: data.get('phone') || '',
+    igHandle: data.get('igHandle') || '',
+    igFollowers: data.get('igFollowers') || '',
+    ttHandle: data.get('ttHandle') || '',
+    ttFollowers: data.get('ttFollowers') || '',
+    xHandle: data.get('xHandle') || '',
+    xFollowers: data.get('xFollowers') || '',
+    otherPlatform: data.get('otherPlatform') || '',
+    otherFollowers: data.get('otherFollowers') || '',
+    bio: data.get('bio') || '',
+    achievements: data.get('achievements') || '',
+    interests: data.get('interests') || '',
+    community: data.get('community') || '',
+    pastDeals: data.get('pastDeals') || '',
+    targetBrands: data.get('targetBrands') || '',
+    dealTypes: dealTypes.join('; '),
+    rate: data.get('rate') || '',
+    availability: data.get('availability') || '',
+    reelLink: data.get('reelLink') || '',
+    photoLink: data.get('photoLink') || '',
+    notes: data.get('notes') || '',
+    submittedAt: new Date().toISOString()
+  };
+
+  document.getElementById('submitStatus').textContent = 'Submitting...';
+
+  try {
+    const response = await fetch(FORMSPREE_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(entry)
+    });
+    if(response.ok){
+      form.reset();
+      document.getElementById('submitStatus').textContent = '';
+      const box = document.getElementById('confirmBox');
+      box.style.display = 'block';
+      setTimeout(() => { box.style.display = 'none'; }, 5000);
+      window.scrollTo({top:0, behavior:'smooth'});
+    } else {
+      document.getElementById('submitStatus').textContent = 'Could not submit. Try again.';
+    }
+  } catch (err) {
+    document.getElementById('submitStatus').textContent = 'Network error. Try again.';
+  }
+});
+</script>
+</body>
+</html>
